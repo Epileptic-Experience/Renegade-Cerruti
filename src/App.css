@@ -32,12 +32,23 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-body{
+body {
   padding: 0%;
-  background: url(../public/logo.jpg) fixed; 
+  background: url(../public/logo.jpg) fixed;
+}
+
+
+
+.ItemContainer {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin-top: 20px;
+margin-left: 40px;
 }
