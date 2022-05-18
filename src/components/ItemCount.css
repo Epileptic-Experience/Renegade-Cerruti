@@ -1,0 +1,33 @@
+.contenedor {
+    text-align: center;
+    width: 100%;
+
+}
+
+.comprar {
+    width: 100%;
+    position: relative;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    font-family: 'Wallpoet', cursive;
+    margin-top: 5px;
+}
+
+
+.cuenta{
+    font-family: 'Wallpoet', cursive;
+    background-color: antiquewhite;
+    
+}
+
+.boton {
+    font-weight: bolder;
+    font-size: 20px;
+    width: 100%;
+    position: relative;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    font-family: 'Wallpoet', cursive;
+}

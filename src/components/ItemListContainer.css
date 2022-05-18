@@ -1,0 +1,20 @@
+.itemContainer {
+    justify-content: center;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 20px;
+    align-items: flex-start;
+    text-align: center;
+}
+
+
+
+.card-body {
+    width: 100%;
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
