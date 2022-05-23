@@ -15,10 +15,10 @@
 }
 
 
-.cuenta{
+.cuenta {
     font-family: 'Wallpoet', cursive;
     background-color: antiquewhite;
-    
+
 }
 
 .boton {
@@ -30,4 +30,9 @@
     background-color: black;
     color: white;
     font-family: 'Wallpoet', cursive;
+}
+
+.boton:disabled {
+    opacity: 0.5;
+    transition: all ease-in-out 0.5s;
 }
