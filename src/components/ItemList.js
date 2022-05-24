@@ -1,10 +1,11 @@
 import Item from "./Item";
 import './ItemList.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ItemList = () => {
 
-    const [productos, setProductos] = useState([
+    const [products, setProducts] = useState([])
+    const productos = [
         {
             tittle: "Una muerte en la familia",
             price: "10.000",
@@ -30,7 +31,7 @@ const ItemList = () => {
             id: 4
         },
         {
-            tittle: "Fear itself> spiderman",
+            tittle: "Fear itself: spiderman",
             price: "1.700",
             img: './FearItself.jpg',
             id: 5
@@ -41,22 +42,40 @@ const ItemList = () => {
             img: './Liga_oscura.jpg',
             id: 6
         }
+    ]
 
-    ])
+    const getProductos = () => {
+        return new Promise((resolve, reject) => {
 
+            setTimeout(() => {
+                resolve(productos)
+            }, 2000)
 
+        })
+    }
 
+    useEffect(() => {
+        getProductos().then(
+            (res) => {
+                setProducts(res)
+            }
+        ).catch((err) => {
+
+            console.log("fallo en la llamada")
+        }
+        )
+    }, [])
 
     return (
         <div className="itemListContainer">
 
             {
-                productos.map((Producto) => {
-                    console.log(Producto)
+                products.map((Producto) => {
+                    const { id, tittle, price, img } = Producto
                     return (
-                        <div className="">
-                            <Item key={Producto.id} tittle={Producto.tittle} price={Producto.price} Img={Producto.img} />
-                        </div>
+
+                        <Item key={id} tittle={tittle} price={price} Img={img} />
+
 
                     )
                 })

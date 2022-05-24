@@ -1,19 +1,28 @@
 .ItemContainer {
     display: flex;
     flex-direction: row-reverse;
-    align-items: flex-start;
+    align-items: flex-start; 
+    
+    
 }
-
-.card-title{
-    height: 70px;
+.card{
+    margin-left: 5px;
+    width: 14rem;
 }
 
 .card-body {
+    text-align: center;
     flex: 1 1 auto;
     padding: 1rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    text-align: center;
     font-family: 'Wallpoet', cursive;
+
+}
+
+
+.card-img-top{
+    height: 350px;
+    width: 180px;
 }
