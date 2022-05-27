@@ -1,13 +1,23 @@
 .ItemContainer {
     display: flex;
-    flex-direction: row-reverse;
-    align-items: flex-start; 
-    
-    
+    flex-direction: row;
+    align-items: flex-start;
+
+
 }
-.card{
-    margin-left: 5px;
-    width: 14rem;
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 700px;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 0.25rem;
+    margin-right: 15px;
 }
 
 .card-body {
@@ -22,7 +32,7 @@
 }
 
 
-.card-img-top{
+.card-img-top {
     height: 350px;
     width: 180px;
 }

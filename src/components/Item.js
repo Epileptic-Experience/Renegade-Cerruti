@@ -4,7 +4,7 @@ import ItemCounter from './ItemCounter';
 
 
 
-const Item = ({ tittle, price, Img }) => {
+const Item = ({ tittle, price, Img, id }) => {
 
 
     return (

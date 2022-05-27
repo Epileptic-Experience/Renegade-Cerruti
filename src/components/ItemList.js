@@ -1,11 +1,13 @@
 import Item from "./Item";
 import './ItemList.css';
 import { useState, useEffect } from "react";
+import './itemDetail'
+
 
 const ItemList = () => {
 
     const [products, setProducts] = useState([])
-    const productos = [
+    const mockProductos = [
         {
             tittle: "Una muerte en la familia",
             price: "10.000",
@@ -48,7 +50,7 @@ const ItemList = () => {
         return new Promise((resolve, reject) => {
 
             setTimeout(() => {
-                resolve(productos)
+                resolve(mockProductos)
             }, 2000)
 
         })
@@ -73,10 +75,10 @@ const ItemList = () => {
                 products.map((Producto) => {
                     const { id, tittle, price, img } = Producto
                     return (
-
-                        <Item key={id} tittle={tittle} price={price} Img={img} />
-
-
+                        <div>
+                            <Item key={id} tittle={tittle} price={price} Img={img} />
+                            
+                        </div>
                     )
                 })
             }
