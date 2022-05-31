@@ -1,21 +1,28 @@
-import './itemDetail.css'
-import ItemCounter from './ItemCounter'
 
-const ItemDetail = () => {
+import './ItemDetail.css'
+
+
+
+const ItemDetail = ({ producto }) => {
+    const { tittle, price, img, detail } = producto
     return (
         <div className="contenedorDetail" >
 
             <div className='contenedorImagen'>
-                <img className='imagen' src='./una_muerte.jpg'></img>
+                <img className='imagen' src={img}></img>
             </div>
             <div className='contenedorDetalles'>
                 <div className='detalles'>
-                    <p>Batman una muerte en la familia</p>
-                    <p>$3500</p>
-                    <p>mientras la relación de batman con jason se pone cada vez peor jason descubre mas de su pasado, mientras tanto el joker escapa de arkham nuevamente para realizar su peor broma hasta la fecha</p>
+                    <p>{tittle}</p>
+                    <p>{price}</p>
+                    <p>{detail}</p>
                 </div>
-               
-               <ItemCounter></ItemCounter>
+                <div className='contador' >
+                    <button className='boton'>+</button>
+                    <button className='comprar'>COMPRAR</button>
+                    <button className='boton'>-</button>
+                </div>
+
             </div>
 
         </div>

@@ -1,7 +1,7 @@
 import Item from "./Item";
 import './ItemList.css';
 import { useState, useEffect } from "react";
-import './itemDetail'
+
 
 
 const ItemList = () => {
@@ -45,6 +45,7 @@ const ItemList = () => {
             id: 6
         }
     ]
+    
 
     const getProductos = () => {
         return new Promise((resolve, reject) => {
@@ -77,7 +78,7 @@ const ItemList = () => {
                     return (
                         <div>
                             <Item key={id} tittle={tittle} price={price} Img={img} />
-                            
+
                         </div>
                     )
                 })
