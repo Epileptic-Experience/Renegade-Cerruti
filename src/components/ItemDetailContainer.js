@@ -1,38 +1,35 @@
-import { useEffect, useState } from "react"
-import ItemDetail from "./ItemDetail.js"
+import { useEffect, useState } from "react";
+import ItemDetail from "./ItemDetail";
+import { mockProductos } from "../utils/productosMock";
+import { useParams } from "react-router-dom";
+
+
+
 
 
 
 const ItemDetailContainer = () => {
-    const [producto, setProducto] = useState({})
-    const MockProducto = {
-        tittle: "Una muerte en la familia",
-        price: "10.000",
-        img: "./una_muerte.jpg",
-        id: 1,
-        detail: "mientras la relación de batman con jason se pone cada vez peor jason descubre mas de su pasado, mientras tanto el joker escapa de arkham nuevamente para realizar su peor broma hasta la fecha"
-    }
-
-    const getProducto = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(MockProducto);
-            }, 2000);
-        });
-    };
+    const { id } = useParams
+    const [product, setProduct] = useState({})
 
     useEffect(() => {
-        getProducto()
-            .then((res) => { setProducto(res); })
-            .catch((err) => { console.log("Fallo en la cargar del detalle"); })
+        const productfilter = mockProductos.find((product) => {
+            return (
+                product.id == id
+            )
 
-    }, [])
+        });
+        setProduct(productfilter)
+    }, [id])
 
+    
     return (
         <div>
-           { Object.keys(producto).length > 0 && <ItemDetail producto={producto} />}
+            <ItemDetail data={product} />
         </div>
     )
+
 }
+
 
 export default ItemDetailContainer

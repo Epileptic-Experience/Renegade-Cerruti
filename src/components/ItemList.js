@@ -1,6 +1,6 @@
 import Item from "./Item";
 import './ItemList.css';
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
 
 
@@ -45,14 +45,14 @@ const ItemList = () => {
             id: 6
         }
     ]
-    
+
 
     const getProductos = () => {
         return new Promise((resolve, reject) => {
 
             setTimeout(() => {
                 resolve(mockProductos)
-            }, 2000)
+            })
 
         })
     }
@@ -77,8 +77,12 @@ const ItemList = () => {
                     const { id, tittle, price, img } = Producto
                     return (
                         <div>
-                            <Item key={id} tittle={tittle} price={price} Img={img} />
-
+                            <Item
+                                key={id}
+                                tittle={tittle}
+                                price={price}
+                                Img={img}
+                                id={id} />
                         </div>
                     )
                 })

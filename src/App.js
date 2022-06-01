@@ -1,8 +1,10 @@
-import ItemList from './components/ItemList';
+import React from 'react';
 import './App.css';
 import NavBar from './components/Navbar';
-import ItemDetailContainer from './components/ItemDetailContainer';
-
+import Home from './pages/Home';
+import ItemDetailPage from './pages/ItemDetailPage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Products from './pages/Products';
 
 
 
@@ -11,11 +13,17 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 function App() {
   return (
 
-    <div >
+    <div className='App' >
 
-      <NavBar/>
-      <ItemList />
-      <ItemDetailContainer/>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/detalle/:id' element={<ItemDetailPage />}></Route>
+          <Route path='/productos' element={<Products />}></Route>
+          <Route path='*' element={<h1>404: LA PAGINA SOLICITADA NO EXISTE</h1>}></Route>
+        </Routes>
+      </BrowserRouter>
 
     </div>
 

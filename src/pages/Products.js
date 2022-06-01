@@ -1,9 +1,9 @@
 import ItemList from "../components/ItemList"
 
-const Home = () => {
+const Products = () => {
     return (
-        <ItemList />
+        <ItemList/>
     )
 }
 
-export default Home
+export default Products
