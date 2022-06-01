@@ -1,5 +1,5 @@
-import Cart from './cart';
-import './navbar.css';
+import Cart from './Cart';
+import './Navbar.css';
 
 const NavBar = () => {
     return (
