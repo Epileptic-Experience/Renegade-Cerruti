@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import './ItemDetail.css'
-
+import ItemCounter from './ItemCounter'
 
 
 const ItemDetail = ({ tittle, price, detail, img }) => {
@@ -18,11 +18,7 @@ const ItemDetail = ({ tittle, price, detail, img }) => {
                     <p>${price}</p>
                     <p>{detail}</p>
                 </div>
-                <div className='contador' >
-                    <button className='boton'>+</button>
-                    <button className='comprar'>Agregar al</button>
-                    <button className='boton'>-</button>
-                </div>
+                <ItemCounter></ItemCounter>
 
             </div>
 

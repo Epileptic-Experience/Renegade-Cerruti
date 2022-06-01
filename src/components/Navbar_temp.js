@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Cart from './Cart';
+import Cart from './Cart_temp';
 import './Navbar.css';
 
 const NavBar = () => {
@@ -11,7 +11,7 @@ const NavBar = () => {
 
                     <div className="navbar-brand">
 
-                        <p className='marca'>renegade </p>
+                        <p className='marca'>Renegade </p>
 
                     </div>
                 </Link>

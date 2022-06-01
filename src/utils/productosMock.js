@@ -34,11 +34,9 @@ const MockProductos = [
         "price": "5.000",
         "img": "./Liga_oscura.jpg",
         "id": 6
-    },
+    }
 
 ]
 
-
 export default MockProductos
-
 
