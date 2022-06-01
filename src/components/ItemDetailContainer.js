@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ItemDetail from "./ItemDetail_temp";
+import ItemDetail from "./ItemDetail";
 import MockProductos from "../utils/productosMock";
 import { useParams } from "react-router-dom";
 
