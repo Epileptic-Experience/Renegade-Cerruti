@@ -2,7 +2,7 @@ import ItemList from "../components/ItemList"
 
 const Home = () => {
     return (
-        <ItemList />
+       <h1>HOME PAGE</h1>
     )
 }
 

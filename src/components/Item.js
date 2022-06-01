@@ -6,7 +6,7 @@ import ItemCounter from './ItemCounter';
 
 
 const Item = ({ tittle, price, Img, id }) => {
-    
+
 
 
     return (
@@ -21,7 +21,7 @@ const Item = ({ tittle, price, Img, id }) => {
                 <Card.Text>
                     <span>${price}</span>
                 </Card.Text>
-                <Link to={`/detalle/${id}`}>
+                <Link to={`/producto/${id}`}>
 
                     <button>Ver detalle</button>
                 </Link>
