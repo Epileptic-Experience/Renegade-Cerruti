@@ -1,6 +1,6 @@
 # Renegade Comics E-commerce
 this project is part of my react development course with the intention of implementing the knowledge passed upon me in class plus my previous knowledge in html,css and vanilla js
-it attempts to mimic an online shop for comics with a lot more functions and optimization updates planned for later on development
+it attempts to mimic an online shop for comics with a lot more functions and optimization/bug fixes updates planned for later on development
 
 # needed dependecies
 

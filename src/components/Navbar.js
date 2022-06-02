@@ -4,9 +4,9 @@ import Cart from './Cart';
 import './Navbar.css';
 
 const NavBar = () => {
-    const categories = [ "DCcomics", "Marvelcomics"]
+    const categories = ["DCcomics", "Marvelcomics"]
     return (
-        <Navbar bg="dark" expand="lg">
+        <Navbar  bg="dark" expand="lg">
 
             <Link to={"/"}>
 
@@ -22,31 +22,33 @@ const NavBar = () => {
 
                     <Nav className="me-auto">
                         <Link to={"/"} className="nav-link active">
-                            <li className="nav-item">
+                            <li className="nav-item link-blanco">
                                 <p>Inicio</p>
                             </li>
                         </Link>
                         <Link className="nav-link" to={"/preguntas"}>
-                            <li className="nav-item">
+                            <li className="nav-item link-blanco">
                                 <p>Preguntas Frecuentes</p>
                             </li>
                         </Link>
                         <Link className="nav-link" to={"/contacto"}>
-                            <li className="nav-item">
+                            <li className="nav-item link-blanco">
                                 <p>contacto</p>
                             </li>
                         </Link>
 
-                        <NavDropdown className='dropdown' title="productos" bg="dark" id="basic-nav-dropdown">
+                        <NavDropdown className='dropdown  ' title="productos" id="basic-nav-dropdown">
+                            <div className='link-blanco'>
+                                {categories.map((category) => {
+                                    return <Link className="nav-link  " to={`/productos/${category} `}>
+                                        <li className="nav-item ">
+                                            <p>{category}</p>
+                                        </li>
+                                    </Link>
 
-                            {categories.map((category) => {
-                                return <Link className="nav-link" to={`/productos/${category} `}>
-                                    <li className="nav-item">
-                                        <p>{category}</p>
-                                    </li>
-                                </Link>
+                                })}
 
-                            })}
+                            </div>
                         </NavDropdown>
 
                     </Nav>
