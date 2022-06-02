@@ -52,7 +52,6 @@ const NavBar = () => {
                                     </Link>
 
                                 })}
-
                             </div>
                         </NavDropdown>
 
