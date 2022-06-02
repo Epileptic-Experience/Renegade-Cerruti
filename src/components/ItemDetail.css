@@ -8,31 +8,32 @@
 
 .contenedorDetalles {
     margin-top: 100px;
-    height: 700px;
+    height: 600px;
     background-color: antiquewhite;
     width: 800px;
     border-radius: 0px 5px 5px 0px;
+    justify-content: center;
 }
 
 .contenedorImagen {
 
-    width: 25%;
-    height: 700px;
+    width: 407px;
+    height: 634px;
     position: relative;
-    margin-left: 350px;
+  margin-left: 15%;
     margin-top: 100px;
     border-radius: 10px;
 }
 
 .imagen {
-    position: relative;
+
     width: 100%;
     height: 100%;
     border-radius: 5px 0px 0px 5px;
 }
 
 .detalles {
-    font-size: 40px;
+    font-size: 20px;
     font-family: 'Wallpoet', cursive;
     position: relative;
     width: 100%;
@@ -48,6 +49,7 @@
     position: relative;
     justify-content: center;
     margin: auto;
+    margin-bottom: 20px;
 }
 
 .boton {

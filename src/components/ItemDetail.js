@@ -4,13 +4,13 @@ import './ItemDetail.css'
 import ItemCounter from './ItemCounter'
 
 
-const ItemDetail = ({ tittle, price, detail, img }) => {
-  
+const ItemDetail = ({data}) => {
+  const {tittle, price, detail, img} = data
     return (
         <div className="contenedorDetail" >
 
             <div className='contenedorImagen'>
-                <img className='imagen' src={img}></img>
+                <img className='imagen' src={`.${img}`}></img>
             </div>
             <div className='contenedorDetalles'>
                 <div className='detalles'>
