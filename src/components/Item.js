@@ -14,7 +14,7 @@ const Item = ({ tittle, price, Img, id }) => {
 
         <Card className='itemContainer' style={{ width: '18rem' }}>
 
-            <Card.Img variant="top" src={Img} />
+            <Card.Img variant="top"  src={`.${Img}`} />
 
             <Card.Body>
                 <Card.Title>{tittle}</Card.Title>

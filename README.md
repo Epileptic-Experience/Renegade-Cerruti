@@ -1,3 +1,24 @@
+# Renegade Comics E-commerce
+this project is part of my react development course with the intention of implementing the knowledge passed upon me in class plus my previous knowledge in html,css and vanilla js
+it attempts to mimic an online shop for comics with a lot more functions and optimization updates planned for later on development
+
+# needed dependecies
+
+to run this app you'll have to install Node.js so you can install the requiered dependecies, you can do that at [https://nodejs.org/en/]
+after you get that done you can go ahead and type `npx create-react-app your-file-name` on your CMD or prefered command console, where your-fire-name is the name you want to give to the folder (don't forget to position yourself at the desired location for the folder using `cd` to move through your files) 
+after that you can type `npm run start` in your console to initialize react's basic layout, shortly after a window should open on the url `http://localhost:3000`,  other hosts in the network might browse to `http://192.168.0.137:3000` for local access
+to edit the files and start doinmg some actually working app just open the created folder to acces it's code
+
+# react-router-dom
+
+react-router-dom is used in this project, to install it locally open your console (be it the one on your code editor,CMD or any other external console you use) and type `npm install react-router-dom `
+
+# react-bootstrap & bootstrap-icons
+react-bootstrap (not to be confused with regular bootstrap) is also used here alongside with bootstrap-icons, to locally install them follow the process listed in react-router-dom instalation but type `npm install react-bootstrap` & `npm install bootstrap-icons `
+
+#a gif showing the page's nvegability will be added to the root directory of this project at `Renegade-test-gif`
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

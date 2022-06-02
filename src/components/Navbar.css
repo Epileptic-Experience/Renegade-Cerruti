@@ -7,10 +7,17 @@ width: 100%;
     font-family: 'Wallpoet', cursive;
 
 }
-
+.marca{
+    position: relative;
+    margin-left: 50px;
+}
 .nav-link{
     font-size: 20px;
 }
 .cartContainer{
     margin: left 0px; ;
+}
+
+.dropdown{
+    background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity));
 }

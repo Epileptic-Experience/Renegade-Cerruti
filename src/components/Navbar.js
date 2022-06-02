@@ -1,37 +1,29 @@
 import { Link } from 'react-router-dom';
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import Cart from './Cart';
 import './Navbar.css';
 
 const NavBar = () => {
+    const categories = [ "DCcomics", "Marvelcomics"]
     return (
-        <nav className="navbar navbar-expand-xlg navbar-dark bg-dark">
+        <Navbar bg="dark" expand="lg">
 
-            <div className="container-fluid">
-                <Link to={"/"}>
+            <Link to={"/"}>
 
-                    <div className="navbar-brand">
+                <div className="navbar-brand">
 
-                        <p className='marca'>Renegade </p>
+                    <p className='marca'>Renegade </p>
 
-                    </div>
-                </Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                </div>
+            </Link>
+            <Container>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
 
-
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-
-
-                    <ul className="navbar-nav">
+                    <Nav className="me-auto">
                         <Link to={"/"} className="nav-link active">
                             <li className="nav-item">
                                 <p>Inicio</p>
-                            </li>
-                        </Link>
-                        <Link className="nav-link" to={"/Productos"}>
-                            <li className="nav-item">
-                                <p>Productos</p>
                             </li>
                         </Link>
                         <Link className="nav-link" to={"/preguntas"}>
@@ -45,11 +37,24 @@ const NavBar = () => {
                             </li>
                         </Link>
 
-                    </ul>
-                    <Cart />
-                </div>
-            </div>
-        </nav >
+                        <NavDropdown className='dropdown' title="productos" bg="dark" id="basic-nav-dropdown">
+
+                            {categories.map((category) => {
+                                return <Link className="nav-link" to={`/productos/${category} `}>
+                                    <li className="nav-item">
+                                        <p>{category}</p>
+                                    </li>
+                                </Link>
+
+                            })}
+                        </NavDropdown>
+
+                    </Nav>
+                </Navbar.Collapse>
+
+            </Container>
+            <Cart />
+        </Navbar>
     )
 }
 

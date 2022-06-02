@@ -2,7 +2,7 @@ import ItemList from "../components/ItemList"
 
 const Products = () => {
     return (
-        <ItemList/>
+      <ItemList/>
     )
 }
 

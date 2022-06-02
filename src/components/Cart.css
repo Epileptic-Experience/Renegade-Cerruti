@@ -1,4 +1,6 @@
 .carrito{
     color: red;
-    margin-left: 0%;
+    position: relative;
+    margin-right: 15px;
+    font-size: 20px;
 }

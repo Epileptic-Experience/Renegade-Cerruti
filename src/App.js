@@ -12,6 +12,7 @@ import Products from './pages/Products';
 
 
 
+
 function App() {
   return (
 
@@ -20,12 +21,13 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/producto/:id' element={<ItemDetailPage />}></Route>
-          <Route path='/contacto' element={<Contacto />}></Route>
-          <Route path='/preguntas' element={<Preguntas />} ></Route>
-          <Route path='/productos' element={<Products />}></Route>
-          <Route path='*' element={<h1>404: LA PAGINA SOLICITADA NO EXISTE</h1>}></Route>
+          <Route path='/' element={<Home />} />
+          <Route path='/producto/:id' element={<ItemDetailPage />} />
+          <Route path='/contacto' element={<Contacto />} />
+          <Route path='/preguntas' element={<Preguntas />} />
+          <Route path='/productos/:category' element={<Products />} />
+          
+          <Route path='*' element={<h1>404: LA PAGINA SOLICITADA NO EXISTE</h1>} />
         </Routes>
       </BrowserRouter>
 

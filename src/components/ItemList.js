@@ -1,6 +1,8 @@
 import Item from "./Item";
 import './ItemList.css';
 import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom";
+import MockProductos from "../utils/productosMock";
 
 
 
@@ -8,67 +10,41 @@ import { useState, useEffect } from "react"
 const ItemList = () => {
 
     const [products, setProducts] = useState([])
-    const mockProductos = [
-        {
-            tittle: "Una muerte en la familia",
-            price: "10.000",
-            img: './una_muerte.jpg',
-            id: 1
-        },
-        {
-            tittle: "crisis en tierras inifinitas",
-            price: "3.500",
-            img: './crisis_tierras_infinitas.webp',
-            id: 2
-        },
-        {
-            tittle: "deadpool mata al universo marvel",
-            price: "20.000",
-            img: './deadpool_mata.jpg',
-            id: 3
-        },
-        {
-            tittle: "deadpool mata al universo marvel otra vez",
-            price: "17.000",
-            img: './Deadpool_otravez.jpg',
-            id: 4
-        },
-        {
-            tittle: "Fear itself: spiderman",
-            price: "1.700",
-            img: './FearItself.jpg',
-            id: 5
-        },
-        {
-            tittle: "Liga de la justicia oscura",
-            price: "5.000",
-            img: './Liga_oscura.jpg',
-            id: 6
-        }
-    ]
-
+    const { category } = useParams()
 
     const getProductos = () => {
         return new Promise((resolve, reject) => {
 
             setTimeout(() => {
-                resolve(mockProductos)
+                resolve(MockProductos)
             })
 
         })
     }
-
     useEffect(() => {
+        console.log("category", category)
+        setProducts([])
         getProductos().then(
             (res) => {
-                setProducts(res)
+                // setProducts(res)
+                filterByCategory(res)
+
             }
         ).catch((err) => {
 
-            console.log("fallo en la llamada")
+            console.log("fallo en la llamada", err)
         }
         )
-    }, [])
+    }, [category])
+
+
+    const filterByCategory = (array) => {
+        return array.map((item) => {
+            if (item.category == category) {
+                return setProducts(products => [...products, item])
+            }
+        })
+    }
 
     return (
         <div className="itemListContainer">
@@ -77,9 +53,9 @@ const ItemList = () => {
                 products.map((Producto) => {
                     const { id, tittle, price, img } = Producto
                     return (
-                        <div>
+                        <div key={id}>
                             <Item
-                                key={id}
+
                                 tittle={tittle}
                                 price={price}
                                 Img={img}
