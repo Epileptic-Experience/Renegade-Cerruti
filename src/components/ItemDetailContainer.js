@@ -17,6 +17,7 @@ const ItemDetailContainer = () => {
         const productfilter = MockProductos.find((product) => product.id == id);
         setProduct(productfilter)
     }, [id])
+   
 
 
 

@@ -38,6 +38,11 @@ const NavBar = () => {
                         </Link>
 
                         <NavDropdown className='dropdown  ' title="productos" id="basic-nav-dropdown">
+                        <Link className="nav-link" to={"/productos"}>
+                            <li className="nav-item ">
+                                <p>Todos</p>
+                            </li>
+                        </Link>
                             <div className='link-blanco'>
                                 {categories.map((category) => {
                                     return <Link className="nav-link  " to={`/productos/${category} `}>
