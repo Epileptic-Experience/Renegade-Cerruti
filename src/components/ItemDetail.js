@@ -39,7 +39,7 @@ const ItemDetail = ({ data }) => {
                     <p>{detail}</p>
                 </div>
                 {mostrarContador && <ItemCounter cantidad={cantidad} addProductToCart={addProductToCart} setCantidad={setCantidad} ></ItemCounter>}
-                {mostrarTerminar && <button className='terminar'><Link to={"/checkout"}>Terminar Compra</Link></button>}
+                {mostrarTerminar && <Link to={"/checkout"}><button className='terminar'>Terminar Compra</button></Link>}
 
             </div>
 
