@@ -7,6 +7,7 @@ import Preguntas from './pages/preguntas';
 import Contacto from './pages/Contacto';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Products from './pages/Products';
+import CheckoutPage from './pages/CheckoutPage';
 import AllitemsPage from './pages/AllitemsPage';
 
 
@@ -29,6 +30,7 @@ function App() {
           <Route path='/productos/:category' element={<Products />} />
           <Route path='/productos' element={<AllitemsPage />} />
           <Route path='*' element={<h1>404: LA PAGINA SOLICITADA NO EXISTE</h1>} />
+          <Route path='/checkout' element={<CheckoutPage/>}/>
         </Routes>
       </BrowserRouter>
 

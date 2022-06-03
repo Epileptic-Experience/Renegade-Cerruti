@@ -10,31 +10,20 @@ const ItemDetail = ({ data }) => {
     const { tittle, price, detail, img } = data
     const { id } = useParams()
     const [product, setProduct] = useState({})
+    const [cantidad, setCantidad] = useState(1)
+    const [mostrarTerminar, setMostrarTerminar] = useState(false)
+    const [mostrarContador, setMostrarContador] = useState(true)
 
     useEffect(() => {
         const productfilter = MockProductos.find((product) => product.id == id);
         setProduct(productfilter)
     }, [id])
-    const [count, setCount] = useState(1);
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    const stock = Math.floor(Math.random() * 100)
-
-    function addCount() {
-        if (count < stock) {
-            setCount(count + 1);
-        }
-
-    }
-    const removeCount = () => {
-        setCount(count - 1)
-    }
-
-    const reset = () => {
-        setCount(1)
+    const addProductToCart = () => {
+        console.log("producto:", data)
+        console.log("Cantidad:", cantidad)
+        setMostrarTerminar(true)
+        setMostrarContador(false)
+        setCantidad(1)
     }
 
     return (
@@ -49,7 +38,8 @@ const ItemDetail = ({ data }) => {
                     <p>${price}</p>
                     <p>{detail}</p>
                 </div>
-                <ItemCounter></ItemCounter>
+                {mostrarContador && <ItemCounter cantidad={cantidad} addProductToCart={addProductToCart} setCantidad={setCantidad} ></ItemCounter>}
+                {mostrarTerminar && <button className='terminar'><Link to={"/checkout"}>Terminar Compra</Link></button>}
 
             </div>
 

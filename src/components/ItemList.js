@@ -23,10 +23,10 @@ const ItemList = () => {
     }
     useEffect(() => {
         console.log("category", category)
-        setProducts([])
         getProductos().then(
             (res) => {
                 // setProducts(res)
+                setProducts([])
                 filterByCategory(res)
 
             }
