@@ -3,7 +3,10 @@ import MockProductos from "../utils/productosMock";
 import { useEffect, useState } from "react";
 import Products from "../pages/Products";
 import './AllItemList.css'
+import { CartProvider } from "../contextos/CartContext";
 import Item from "./Item";
+
+
 
 const AllItemList = () => {
     const [allProducts, setAllProducts] = useState([])
@@ -29,12 +32,17 @@ const AllItemList = () => {
             {allProducts.map((Product) => {
                 const { id, tittle, price, img } = Product
                 return (
-                    <Item
+                    <div className="contenedor">
+                        
+                            <Item
 
-                        tittle={tittle}
-                        price={price}
-                        Img={img}
-                        id={id} />
+                                tittle={tittle}
+                                price={price}
+                                Img={img}
+                                id={id}
+                            />
+                        
+                    </div>
                 )
             })}
         </div>

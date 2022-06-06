@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom'
 import './ItemDetail.css'
 import MockProductos from "../utils/productosMock";
 import ItemCounter from './ItemCounter'
+
 
 
 const ItemDetail = ({ data }) => {
@@ -18,12 +19,12 @@ const ItemDetail = ({ data }) => {
         const productfilter = MockProductos.find((product) => product.id == id);
         setProduct(productfilter)
     }, [id])
+
+
+    
     const addProductToCart = () => {
-        console.log("producto:", data)
-        console.log("Cantidad:", cantidad)
         setMostrarTerminar(true)
         setMostrarContador(false)
-        setCantidad(1)
     }
 
     return (

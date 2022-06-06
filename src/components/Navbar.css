@@ -7,28 +7,31 @@
 .marca, .nav-link {
     font-family: 'Wallpoet', cursive;
 
+
 }
 
 .marca {
     position: relative;
     margin-left: 50px;
     color: white;
+    margin-left: 0%;
 }
-
+@media (max-width: 768px) {
+    .marca{
+        margin-left: 18px;
+    }
+    
+}
 .nav-link {
     font-size: 20px;
-
+    width: fit-content;
 }
 
-.cartContainer {
-    margin: left 0px;
-    ;
-}
 
-.link-blanco{
+.link-blanco {
     color: white;
 }
 
-.NavDropdown{
-   color: white;
+.NavDropdown {
+    color: white;
 }

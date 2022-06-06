@@ -1,35 +1,38 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import './ItemCounter.css'
 
-const ItemCounter = ({addProductToCart,cantidad,setCantidad}) => {
 
-   
+const ItemCounter = ({ addProductToCart, cantidad, setCantidad }) => {
 
+    
     const stock = Math.floor(Math.random() * 100)
 
     function addCount() {
-        if (cantidad< stock) {
-          
+        if (cantidad < stock) {
+
             setCantidad(cantidad + 1)
         }
 
     }
     const removeCount = () => {
-       
+
         setCantidad(cantidad - 1)
     }
 
-    
+
 
 
     return (
         <div className="contenedor">
-            <button className="boton" onClick={addCount}  >+</button>
+            <button className="boton" onClick={addCount} >+</button>
             <div className="cuenta" >unidades:{cantidad}</div>
             <button className="boton" onClick={removeCount} disabled={cantidad === 1}  >-</button>
             <br />
-            <button className="comprar" onClick={addProductToCart}>Agregar al carrito</button>
+            <button className="comprar"
+                onClick={addProductToCart}>
+                Agregar al carrito
+            </button>
 
         </div>)
 }
