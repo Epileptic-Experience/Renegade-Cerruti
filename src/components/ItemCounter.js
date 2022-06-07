@@ -3,10 +3,10 @@ import { Modal, Button } from "react-bootstrap";
 import './ItemCounter.css'
 
 
-const ItemCounter = ({ addProductToCart, cantidad, setCantidad }) => {
+const ItemCounter = ({ addProductToCart, cantidad, setCantidad, stock }) => {
 
     
-    const stock = Math.floor(Math.random() * 100)
+   
 
     function addCount() {
         if (cantidad < stock) {

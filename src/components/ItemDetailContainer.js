@@ -11,21 +11,16 @@ import { useParams } from "react-router-dom";
 const ItemDetailContainer = () => {
 
     const { id } = useParams()
-    const [product, setProduct] = useState({})
+    const [product, setProduct] = useState(null)
 
     useEffect(() => {
         const productfilter = MockProductos.find((product) => product.id == id);
         setProduct(productfilter)
     }, [id])
-   
-
-
-
-
     return (
-        <div>
-            <ItemDetail data={product} />
-        </div>
+      <div>
+        <ItemDetail data={product} />
+      </div>
     )
 
 }

@@ -1,0 +1,48 @@
+.contenedorCheckout {
+    width: 750px;
+    height: 100%;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-bottom: 20px;
+    
+    
+}
+
+.contenidoCheckout {
+   
+    width: 90%;
+    margin-right: 0%;
+    justify-content: center;
+    
+
+}
+
+.contenedorImagenCheckout {
+    
+    width: 10%;
+}
+
+.imagenCheckout{
+width: 200px;
+height: 200px;
+    position: relative;
+}
+
+.textoCheckout{
+    font-size: 40px;
+    margin-top: 40px;
+}
+
+.remove{
+    font-size: 20px;
+}
+
+.pagar{
+    width: 200px;
+}
+
+.botonCheckeckout{
+    width: 750px;
+}

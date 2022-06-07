@@ -1,49 +1,66 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect, useContext } from "react";
-import { useParams } from 'react-router-dom'
 import './ItemDetail.css'
-import MockProductos from "../utils/productosMock";
 import ItemCounter from './ItemCounter'
-
-
+import CartContext from './../contextos/CartContext';
 
 const ItemDetail = ({ data }) => {
-    const { tittle, price, detail, img } = data
-    const { id } = useParams()
-    const [product, setProduct] = useState({})
+    const { addProductToCart, cartItemList } = useContext(CartContext);
+
+    // if (!data.cantidad) data.cantidad = 1;
+    const [stock] = useState(Math.floor(Math.random() * 100))
+    const [product, setProduct] = useState(data)
     const [cantidad, setCantidad] = useState(1)
     const [mostrarTerminar, setMostrarTerminar] = useState(false)
     const [mostrarContador, setMostrarContador] = useState(true)
 
-    useEffect(() => {
-        const productfilter = MockProductos.find((product) => product.id == id);
-        setProduct(productfilter)
-    }, [id])
-
-
-    
-    const addProductToCart = () => {
+    const Finish = () => {
         setMostrarTerminar(true)
         setMostrarContador(false)
     }
 
+    const _addProductToCart = () => {
+        Finish();
+        product.cantidad = cantidad;
+        addProductToCart(product);
+        
+    }
+
+    useEffect(() => {
+        console.log("cartItemList", cartItemList)
+    }, []);
+
+    useEffect(() => {
+        if (data && !product) {
+            setProduct(data);
+            const alreadyExist = cartItemList.find((item) => item.id === data.id);
+            if (alreadyExist) {
+                Finish();
+            }
+        }
+    }, [data]);
+
+    console.log("product", product);
     return (
         <div className="contenedorDetail" >
-
-            <div className='contenedorImagen'>
-                <img className='imagen' src={`.${img}`}></img>
-            </div>
-            <div className='contenedorDetalles'>
-                <div className='detalles'>
-                    <p>{tittle}</p>
-                    <p>${price}</p>
-                    <p>{detail}</p>
-                </div>
-                {mostrarContador && <ItemCounter cantidad={cantidad} addProductToCart={addProductToCart} setCantidad={setCantidad} ></ItemCounter>}
-                {mostrarTerminar && <Link to={"/checkout"}><button className='terminar'>Terminar Compra</button></Link>}
-
-            </div>
-
+            {(product == null) ? (
+                <h1> Cargando producto </h1>
+            ) : (
+                <>
+                    <div className='contenedorImagen'>
+                        <img className='imagen' src={`.${product.img}`}></img>
+                    </div>
+                    <div className='contenedorDetalles'>
+                        <div className='detalles'>
+                            <p>{product.tittle}</p>
+                            <p>${product.price}</p>
+                            <p>{product.detail}</p>
+                        </div>
+                        {mostrarContador && <ItemCounter stock={stock} cantidad={cantidad} addProductToCart={_addProductToCart} setCantidad={setCantidad} ></ItemCounter>}
+                        {mostrarTerminar && <Link to={"/checkout"}><button className='terminar'>Terminar Compra</button></Link>}
+                    </div>
+                </>
+            )}
         </div>
     )
 }
