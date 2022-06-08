@@ -22,7 +22,6 @@ const ItemList = () => {
         })
     }
     useEffect(() => {
-        console.log("category", category)
         getProductos().then(
             (res) => {
                 // setProducts(res)

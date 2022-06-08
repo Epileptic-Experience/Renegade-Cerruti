@@ -7,11 +7,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -40,7 +35,10 @@
 
 body {
   padding: 0%;
-  background: url(../public/logo.jpg) fixed;
+  background: url(../public/logo.jpg);
+  background-size: auto;
+
+
 
 }
 
@@ -52,5 +50,5 @@ body {
   flex-direction: row;
   position: relative;
   margin-top: 20px;
-margin-left: 40px;
+  margin-left: 40px;
 }

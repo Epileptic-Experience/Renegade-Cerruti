@@ -1,0 +1,47 @@
+.contenedorHome {
+    position: relative;
+    margin-top: 10%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'Wallpoet', cursive;
+
+
+}
+
+.contenedorCarusel {
+    grid-area: carusel;
+    background-color: rgba(238, 5, 5, 0.75);
+    height: 300px;
+    width: 100%;
+
+}
+
+.carusel {
+    position: relative;
+    height: 300px;
+}
+
+.imagenHome {
+    height: 300px;
+}
+
+.tituloHome {
+    background-color: rgba(238, 5, 5, 0.75);
+    color: black;
+
+}
+
+.textoCarusel {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: red;
+    height: 70px;
+    border-radius: 10px;
+    margin: auto;
+    position: relative;
+}
+
+

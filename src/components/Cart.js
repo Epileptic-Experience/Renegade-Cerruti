@@ -1,17 +1,22 @@
 import './Cart.css'
 import { Link } from 'react-router-dom'
-import { CartProvider } from '../contextos/CartContext'
+import { useContext } from 'react'
+import CartContext from '../contextos/CartContext'
 
 const Cart = () => {
-   
+    const { cartItemList } = useContext(CartContext)
+    const checkoutList = cartItemList.length
 
-        return (
-        <Link to={"/checkout"} >
+    return (
+        <Link to={"/checkout"} className="Link" >
             <div>
-                <i className="bi bi-cart4 carrito"></i>
+                <div className='cantidadCart' >
+                    <i className="bi bi-cart4 carrito"></i>
+                    {checkoutList}
+                </div>
             </div>
         </Link>
-        )
-  
+    )
+
 }
 export default Cart

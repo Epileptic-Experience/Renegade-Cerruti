@@ -10,6 +10,8 @@ import Item from "./Item";
 
 const AllItemList = () => {
     const [allProducts, setAllProducts] = useState([])
+    
+    
     const getAllProducts = () => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
@@ -21,7 +23,6 @@ const AllItemList = () => {
 
         getAllProducts().then((res) => {
             setAllProducts(res)
-            console.log(allProducts)
         }).catch((err) => {
             console.log("error en la carga", err)
         })
@@ -42,6 +43,7 @@ const AllItemList = () => {
                                 id={id}
                             />
                         
+
                     </div>
                 )
             })}

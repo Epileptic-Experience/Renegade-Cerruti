@@ -1,6 +1,17 @@
-.carrito{
+.carrito {
     color: red;
     position: relative;
     margin-right: 15px;
     font-size: 20px;
+}
+
+.cantidadCart {
+    font-family: 'Wallpoet', cursive;
+    color: red;
+    text-decoration: none;
+    
+}
+
+.Link{
+    text-decoration: none;
 }

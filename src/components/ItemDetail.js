@@ -7,7 +7,6 @@ import CartContext from './../contextos/CartContext';
 const ItemDetail = ({ data }) => {
     const { addProductToCart, cartItemList } = useContext(CartContext);
 
-    // if (!data.cantidad) data.cantidad = 1;
     const [stock] = useState(Math.floor(Math.random() * 100))
     const [product, setProduct] = useState(data)
     const [cantidad, setCantidad] = useState(1)
@@ -26,9 +25,7 @@ const ItemDetail = ({ data }) => {
         
     }
 
-    useEffect(() => {
-        console.log("cartItemList", cartItemList)
-    }, []);
+ 
 
     useEffect(() => {
         if (data && !product) {

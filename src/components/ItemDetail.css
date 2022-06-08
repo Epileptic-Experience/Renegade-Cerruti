@@ -5,23 +5,24 @@
     flex-direction: row;
     margin-bottom: 10px;
     flex-wrap: wrap;
+
+
 }
 
 .contenedorDetalles {
     margin-top: 100px;
     height: 600px;
     background-color: antiquewhite;
-    width: 800px;
+    width: 70%;
     border-radius: 0px 5px 5px 0px;
     justify-content: center;
 }
 
 .contenedorImagen {
 
-    width: 407px;
+    width: 30%;
     height: 634px;
     position: relative;
-    margin-left: 15%;
     margin-top: 100px;
     border-radius: 10px;
 }
@@ -80,3 +81,14 @@
     font-family: 'Wallpoet', cursive;
 }
 
+@media screen and (max-width:768px) {
+    .contenedorDetail{
+        flex-direction: column;
+    }
+    .contenedorDetalles{
+        width: 100%;
+    }
+    .contenedorImagen{
+        width: 100%;
+    }
+}
