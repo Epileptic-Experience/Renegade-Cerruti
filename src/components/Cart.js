@@ -6,6 +6,7 @@ import CartContext from '../contextos/CartContext'
 const Cart = () => {
     const { cartItemList } = useContext(CartContext)
     const checkoutList = cartItemList.length
+    console.log(cartItemList.cantidad)
 
     return (
         <Link to={"/checkout"} className="Link" >
