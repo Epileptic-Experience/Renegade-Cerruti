@@ -19,7 +19,7 @@ const Home = () => {
                 <Carousel className='carusel' >
                     {MockProductos.slice(0, 4).map(
                         (recomendado) => {
-                            const { tittle, price, img, id } = recomendado
+                            const { tittle, img, id } = recomendado
                             return (
                                 <Carousel.Item key={id}>
                                     <Link to={`/producto/${id}`}>

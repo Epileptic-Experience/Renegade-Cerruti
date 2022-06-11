@@ -6,6 +6,9 @@ const CartContext = createContext()
 const CartProvider = ({ children }) => {
 
     const [cartItemList, setCartItemList] = useState([])
+    // const Total = (cartItemList.cantidad * cartItemList.price)
+
+    // const totalCompra = ([...Total + Total])
 
     const addProductToCart = (product) => {
         const cartList = [...cartItemList];
@@ -20,11 +23,20 @@ const CartProvider = ({ children }) => {
         }
         setCartItemList(newArray)
     }
+
+    const getAmountOfItems = () => {
+        let amount = 0
+        cartItemList.forEach((item) => { amount = amount + item.cantidad })
+        return amount
+        console.log(amount)
+    }
     const data = {
         cartItemList,
         addProductToCart,
-        removeFromCart
-
+        removeFromCart,
+        getAmountOfItems,
+        // totalCompra
+       
     }
 
     return (

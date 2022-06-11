@@ -21,6 +21,13 @@ const ItemList = () => {
 
         })
     }
+    const filterByCategory = (array) => {
+        return array.map((item) => {
+            if (item.category == category) {
+                return setProducts(products => [...products, item])
+            }
+        })
+    }
     useEffect(() => {
         getProductos().then(
             (res) => {
@@ -37,13 +44,6 @@ const ItemList = () => {
     }, [category])
 
 
-    const filterByCategory = (array) => {
-        return array.map((item) => {
-            if (item.category == category) {
-                return setProducts(products => [...products, item])
-            }
-        })
-    }
 
     return (
         <div className="itemListContainer">

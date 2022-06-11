@@ -1,10 +1,15 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import Cart from './Cart';
 import './Navbar.css';
+import CartContext from '../contextos/CartContext';
 
 const NavBar = () => {
     const categories = ["DCcomics", "Marvelcomics"]
+    const { getAmountOfItems } = useContext(CartContext)
+    const amountOfItems = getAmountOfItems()
+
     return (
         <Navbar bg="dark" expand="lg">
 
@@ -58,7 +63,7 @@ const NavBar = () => {
                     </Nav>
                 </Navbar.Collapse>
 
-                <Cart className="nav-link" />
+                { amountOfItems > 0 && <Cart className="nav-link"  />}
             </Container>
         </Navbar>
     )
