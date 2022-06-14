@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 
 
 const CheckoutPage = () => {
-    const { removeFromCart, cartItemList } = useContext(CartContext);
+    const { removeFromCart, cartItemList, amount } = useContext(CartContext);
+    console.log(amount)
 
     return (
         <div>
@@ -49,7 +50,7 @@ const CheckoutPage = () => {
 
             }
 
-            {cartItemList.length === 0 ? <Link to={'/productos'}> < Button className='botonCheckeckout' variant="dark" > ver productos  </Button>  </Link> : < Button className='botonCheckeckout' variant="dark" > PAGAR </Button> }
+            {cartItemList.length === 0 ? <Link to={'/productos'}> < Button className='botonCheckeckout' variant="dark" > ver productos  </Button>  </Link> : < Button className='botonCheckeckout' variant="dark" > PAGAR {amount}</Button>}
         </div >
     )
 }

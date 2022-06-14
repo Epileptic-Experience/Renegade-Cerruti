@@ -28,13 +28,13 @@ const CartProvider = ({ children }) => {
         let amount = 0
         cartItemList.forEach((item) => { amount = amount + item.cantidad })
         return amount
-        console.log(amount)
     }
     const data = {
         cartItemList,
         addProductToCart,
         removeFromCart,
         getAmountOfItems,
+        
         // totalCompra
        
     }

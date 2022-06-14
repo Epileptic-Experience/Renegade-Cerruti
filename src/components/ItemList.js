@@ -3,6 +3,8 @@ import './ItemList.css';
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 import MockProductos from "../utils/productosMock";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import dataBase from "../utils/FirebaseConfig";
 
 
 
@@ -12,36 +14,52 @@ const ItemList = () => {
     const [products, setProducts] = useState([])
     const { category } = useParams()
 
-    const getProductos = () => {
-        return new Promise((resolve, reject) => {
 
-            setTimeout(() => {
-                resolve(MockProductos)
-            })
 
+    const getProductosFirebase = async () => {
+        const productSnapshot = await getDocs(collection(dataBase, "0"))
+
+        const productList = productSnapshot.docs.map((doc) => {
+            let product = doc.data()
+            product.id = doc.id
+
+            return product
         })
+        console.log("productList:", productList)
+
     }
-    const filterByCategory = (array) => {
-        return array.map((item) => {
-            if (item.category == category) {
-                return setProducts(products => [...products, item])
-            }
+
+    const getProductsCategory = async (category) => {
+        const q = query(collection(dataBase, '0'), where('category', '==', category))
+        const categorySnapshot = await getDocs(q)
+        const categoryList = categorySnapshot.docs.map((doc) => {
+            let product = doc.data();
+            product.id = doc.id;
+            return product;
         })
+        return categoryList;
     }
+
+
     useEffect(() => {
-        getProductos().then(
-            (res) => {
-                // setProducts(res)
-                setProducts([])
-                filterByCategory(res)
+        setProducts([]);
+        if (category === undefined) {
+            getProductosFirebase()
+                .then((res) => {
+                    setProducts(res)
+                })
+                .catch(() => {
+                    console.log('ERROR');
+                })
 
-            }
-        ).catch((err) => {
-
-            console.log("fallo en la llamada", err)
+        } else {
+            getProductsCategory(category)
+                .then((res) => {
+                    setProducts(res)
+                })
         }
-        )
     }, [category])
+
 
 
 
