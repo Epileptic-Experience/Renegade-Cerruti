@@ -6,15 +6,10 @@ import MockProductos from "../utils/productosMock";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import dataBase from "../utils/FirebaseConfig";
 
-
-
-
 const ItemList = () => {
 
     const [products, setProducts] = useState([])
     const { category } = useParams()
-
-
 
     const getProductosFirebase = async () => {
         const productSnapshot = await getDocs(collection(dataBase, "0"))
@@ -26,10 +21,10 @@ const ItemList = () => {
             return product
         })
         console.log("productList:", productList)
-
+        return productList;
     }
 
-    const getProductsCategory = async (category) => {
+    const getProductsCategory = async (Category) => {
         const q = query(collection(dataBase, '0'), where('category', '==', category))
         const categorySnapshot = await getDocs(q)
         const categoryList = categorySnapshot.docs.map((doc) => {
@@ -40,12 +35,12 @@ const ItemList = () => {
         return categoryList;
     }
 
-
     useEffect(() => {
         setProducts([]);
         if (category === undefined) {
             getProductosFirebase()
                 .then((res) => {
+                    console.log("getProductosFirebase", res);
                     setProducts(res)
                 })
                 .catch(() => {
@@ -55,13 +50,10 @@ const ItemList = () => {
         } else {
             getProductsCategory(category)
                 .then((res) => {
-                    setProducts(res)
+                    setProducts(res);
                 })
         }
-    }, [category])
-
-
-
+    }, [category]);
 
     return (
         <div className="itemListContainer">
@@ -72,7 +64,6 @@ const ItemList = () => {
                     return (
                         <div key={id}>
                             <Item
-
                                 tittle={tittle}
                                 price={price}
                                 Img={img}

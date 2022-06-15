@@ -39,46 +39,7 @@ const MockProductos = [
         "detail": "Tiempos de incertidumbre y miedo brotan por todo el mundo, los héroes han retomado el poder en el Universo Marvel (Era Heroica), pero la desconfianza que la gente común siente hacia ellos después de la Guerra Civil, la Invasión Skrull, el Reinado Oscuro de Norman Osborn y la reciente caída de Asgard durante el Asedio, ha provocado un profundo miedo... miedo que podría consumir todo...",
         "id": 5
     },
-    {
-        "tittle": "Fear itself: spiderman vol:3",
-        "price": 1700,
-        "category": "Marvelcomics",
-        "img": "./FearItself.jpg",
-        "detail": "Tiempos de incertidumbre y miedo brotan por todo el mundo, los héroes han retomado el poder en el Universo Marvel (Era Heroica), pero la desconfianza que la gente común siente hacia ellos después de la Guerra Civil, la Invasión Skrull, el Reinado Oscuro de Norman Osborn y la reciente caída de Asgard durante el Asedio, ha provocado un profundo miedo... miedo que podría consumir todo...",
-        "id": 57
-    },
-    {
-        "tittle": "Fear itself: spiderman vol:3",
-        "price": 1700,
-        "category": "Marvelcomics",
-        "img": "./FearItself.jpg",
-        "detail": "Tiempos de incertidumbre y miedo brotan por todo el mundo, los héroes han retomado el poder en el Universo Marvel (Era Heroica), pero la desconfianza que la gente común siente hacia ellos después de la Guerra Civil, la Invasión Skrull, el Reinado Oscuro de Norman Osborn y la reciente caída de Asgard durante el Asedio, ha provocado un profundo miedo... miedo que podría consumir todo...",
-        "id": 8
-    },
-    {
-        "tittle": "Fear itself: spiderman vol:3",
-        "price": 1700,
-        "category": "Marvelcomics",
-        "img": "./FearItself.jpg",
-        "detail": "Tiempos de incertidumbre y miedo brotan por todo el mundo, los héroes han retomado el poder en el Universo Marvel (Era Heroica), pero la desconfianza que la gente común siente hacia ellos después de la Guerra Civil, la Invasión Skrull, el Reinado Oscuro de Norman Osborn y la reciente caída de Asgard durante el Asedio, ha provocado un profundo miedo... miedo que podría consumir todo...",
-        "id": 9
-    },
-    {
-        "tittle": "Fear itself: spiderman vol:3",
-        "price": 1700,
-        "category": "Marvelcomics",
-        "img": "./FearItself.jpg",
-        "detail": "Tiempos de incertidumbre y miedo brotan por todo el mundo, los héroes han retomado el poder en el Universo Marvel (Era Heroica), pero la desconfianza que la gente común siente hacia ellos después de la Guerra Civil, la Invasión Skrull, el Reinado Oscuro de Norman Osborn y la reciente caída de Asgard durante el Asedio, ha provocado un profundo miedo... miedo que podría consumir todo...",
-        "id": 12
-    },
-    {
-        "tittle": "Fear itself: spiderman vol:3",
-        "price": 1700,
-        "category": "Marvelcomics",
-        "img": "./FearItself.jpg",
-        "detail": "Tiempos de incertidumbre y miedo brotan por todo el mundo, los héroes han retomado el poder en el Universo Marvel (Era Heroica), pero la desconfianza que la gente común siente hacia ellos después de la Guerra Civil, la Invasión Skrull, el Reinado Oscuro de Norman Osborn y la reciente caída de Asgard durante el Asedio, ha provocado un profundo miedo... miedo que podría consumir todo...",
-        "id": 11
-    },
+
     {
         "tittle": "Liga de la justicia oscura",
         "price": 5000,
