@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import CartContext from './../contextos/CartContext';
-import { Button } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 import './checkoutPage.css'
 import { Link } from 'react-router-dom';
 
@@ -8,6 +8,35 @@ import { Link } from 'react-router-dom';
 const CheckoutPage = () => {
     const { removeFromCart, cartItemList, amount } = useContext(CartContext);
     console.log(amount)
+    function MyVerticallyCenteredModal(props) {
+        return (
+            <Modal
+                {...props}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+                backdrop="static"
+                className='modal'
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="contained-modal-title-vcenter">
+                        <p>Datos de compra</p>
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <h4>Por favor ingrese sus Datos</h4>
+                  <input type="Text" placeholder='nombre' ></input>
+                  <input type="Number" placeholder='telefono'></input>
+                  <input type="mail" placeholder='Email'></input>
+                  
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button className='enviar' type='Submit' onClick={props.onHide}>enviar</Button>
+                </Modal.Footer>
+            </Modal>
+        );
+    }
+    const [modalShow, setModalShow] = useState(false);
 
     return (
         <div>
@@ -50,7 +79,13 @@ const CheckoutPage = () => {
 
             }
 
-            {cartItemList.length === 0 ? <Link to={'/productos'}> < Button className='botonCheckeckout' variant="dark" > ver productos  </Button>  </Link> : < Button className='botonCheckeckout' variant="dark" > PAGAR {amount}</Button>}
+            {cartItemList.length === 0 ? <Link to={'/productos'}> < Button className='botonCheckout' variant="dark" > ver productos  </Button>  </Link> :
+                <Button className='botonCheckout' variant="dark" onClick={() => setModalShow(true)}>Pagar </Button>}
+            <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
+
         </div >
     )
 }

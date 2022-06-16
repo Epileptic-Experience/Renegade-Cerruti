@@ -30,7 +30,9 @@
 
 }
 
-
+.card-tittle{
+    box-sizing:none;
+}
 .card-img-top {
     height: 100%;
 }

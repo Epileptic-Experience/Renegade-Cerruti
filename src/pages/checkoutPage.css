@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-  
+
     margin-top: 20px;
 
 }
@@ -45,11 +45,24 @@
     font-size: 20px;
 }
 
-.pagar {
-    width: 200px;
+.modal-content {
+    width: 50%;
+    margin: auto;
 }
 
-.botonCheckeckout {
+.modal-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+input{
+    margin-bottom: 15px;
+}
+.enviar{
+    width: 100%;
+}
+
+.botonCheckout {
     width: 100%;
     margin-top: 10px;
 }
@@ -59,14 +72,17 @@
         display: none;
         width: 0%;
     }
-    .contenedorImagenCheckout{
+
+    .contenedorImagenCheckout {
         width: 0%;
     }
-    .contenidoCheckout{
+
+    .contenidoCheckout {
         width: 100%;
-        
+
     }
-    .textoCheckout{
+
+    .textoCheckout {
         margin-top: 0px;
     }
 
