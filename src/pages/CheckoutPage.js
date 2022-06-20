@@ -1,13 +1,20 @@
 import { useContext, useState } from 'react';
 import CartContext from './../contextos/CartContext';
 import { Button, Modal } from 'react-bootstrap';
-import './checkoutPage.css'
+import './checkoutPage.css';
 import { Link } from 'react-router-dom';
 
 
+
 const CheckoutPage = () => {
-    const { removeFromCart, cartItemList, amount } = useContext(CartContext);
-    console.log(amount)
+    const { removeFromCart, cartItemList } = useContext(CartContext);
+    const [name, setName] = useState(undefined)
+
+
+    const handleChange = (e) => {
+        console.log(e.target.value)
+        setName(e.target.value)
+    }
     function MyVerticallyCenteredModal(props) {
         return (
             <Modal
@@ -25,10 +32,10 @@ const CheckoutPage = () => {
                 </Modal.Header>
                 <Modal.Body>
                     <h4>Por favor ingrese sus Datos</h4>
-                  <input type="Text" placeholder='nombre' ></input>
-                  <input type="Number" placeholder='telefono'></input>
-                  <input type="mail" placeholder='Email'></input>
-                  
+                    <input type="Text" required="required" onChange={handleChange} placeholder='nombre' ></input>
+                    <input type="Number" required="required" onChange={handleChange} placeholder='telefono'></input>
+                    <input type="mail" required="required" onChange={handleChange} placeholder='Email'></input>
+
                 </Modal.Body>
                 <Modal.Footer>
                     <Button className='enviar' type='Submit' onClick={props.onHide}>enviar</Button>
@@ -42,8 +49,6 @@ const CheckoutPage = () => {
         <div>
             <h1>Checkout</h1>
             {
-
-
                 cartItemList.map((Producto) => {
                     const { id, tittle, cantidad, price, img } = Producto
                     const Total = ((cantidad * price))
