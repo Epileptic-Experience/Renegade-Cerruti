@@ -18,10 +18,8 @@ const Home = () => {
         const productList = productSnapshot.docs.map((doc) => {
             let product = doc.data()
             product.id = doc.id
-
             return product
         })
-        console.log("productList:", productList)
         return productList;
 
     }
@@ -50,7 +48,7 @@ const Home = () => {
                                         <img
                                             className='imagenHome'
                                             src={img}
-                                            alt="First slide"
+                                            alt={tittle}
                                         />
                                     </Link>
 

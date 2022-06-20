@@ -17,10 +17,8 @@ const ItemList = () => {
         const productList = productSnapshot.docs.map((doc) => {
             let product = doc.data()
             product.id = doc.id
-
             return product
         })
-        console.log("productList:", productList)
         return productList;
     }
 
@@ -40,7 +38,6 @@ const ItemList = () => {
         if (category === undefined) {
             getProductosFirebase()
                 .then((res) => {
-                    console.log("getProductosFirebase", res);
                     setProducts(res)
                 })
                 .catch(() => {

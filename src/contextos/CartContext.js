@@ -11,7 +11,6 @@ const CartProvider = ({ children }) => {
     const addProductToCart = (product) => {
         const cartList = [...cartItemList];
         cartList.push(product);
-        setTotalPrice(totalPrice + product.price)
         setCartItemList(cartList)
     }
     const removeFromCart = (productId) => {

@@ -6,8 +6,7 @@ import CartContext from './../contextos/CartContext';
 
 const ItemDetail = ({ data }) => {
     const { addProductToCart, cartItemList } = useContext(CartContext);
-
-    const [stock] = useState(Math.floor(Math.random() * 100))
+    const stock = useState(Math.floor(Math.random() * 100))
     const [product, setProduct] = useState(data)
     const [cantidad, setCantidad] = useState(1)
     const [mostrarTerminar, setMostrarTerminar] = useState(false)
@@ -36,8 +35,6 @@ const ItemDetail = ({ data }) => {
             }
         }
     }, [data]);
-
-    console.log("product", product);
     return (
         <div className="contenedorDetail" >
             {(product == null) ? (

@@ -19,7 +19,6 @@ const getProduct = async (productID)=>{
 
   useEffect(() => {
     getProduct(id).then((res) => {
-      console.log("res", res);
       setProduct(res[0])
       
     }).catch((e) => {
