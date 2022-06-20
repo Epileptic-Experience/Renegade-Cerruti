@@ -3,20 +3,47 @@ import CartContext from './../contextos/CartContext';
 import { Button, Modal } from 'react-bootstrap';
 import './checkoutPage.css';
 import { Link } from 'react-router-dom';
-
-
+import dataBase from '../utils/FirebaseConfig';
+import { addDoc, collection } from 'firebase/firestore'
+import { async } from '@firebase/util';
 
 const CheckoutPage = () => {
-    const { removeFromCart, cartItemList } = useContext(CartContext);
-    const [name, setName] = useState(undefined)
+    const { removeFromCart, cartItemList,setCartItemList } = useContext(CartContext);
+    const [inputValue, setInputValue] = useState({
+        name: '',
+        phone: '',
+        mail: ''
+    })
+    const [order, setOrder] = useState({
+        buyer: {},
+        items: cartItemList.map((item) => {
+            const { id, tittle, price, cantidad } = item
+            return {
+                id: id,
+                tittle: tittle,
+                price: price,
+                cantidad: cantidad
+            }
+        }),
 
 
+    })
+
+    const [succesOrder, setSuccesOrder] = useState()
+    const handleSubmit = () => {
+        setModalShow(!modalShow)
+        setOrder({ ...order, buyer: inputValue })
+        addOrder({ ...order, buyer: inputValue })
+        console.log("id orden:", succesOrder)
+    }
     const handleChange = (e) => {
-        console.log(e.target.value)
-        setName(e.target.value)
+        setInputValue({ ...inputValue, [e.target.name]: e.target.value })
     }
     function MyVerticallyCenteredModal(props) {
         return (
+
+
+
             <Modal
                 {...props}
                 size="lg"
@@ -30,29 +57,46 @@ const CheckoutPage = () => {
                         <p>Datos de compra</p>
                     </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                    <h4>Por favor ingrese sus Datos</h4>
-                    <input type="Text" required="required" onChange={handleChange} placeholder='nombre' ></input>
-                    <input type="Number" required="required" onChange={handleChange} placeholder='telefono'></input>
-                    <input type="mail" required="required" onChange={handleChange} placeholder='Email'></input>
+                {succesOrder ? (
+                    <Modal.Body>
+                        <div>
+                            orden completada con exito
+                            numero de orden {succesOrder}
+                        </div>
+                    </Modal.Body>
+                ) : (
 
-                </Modal.Body>
+                    <Modal.Body>
+                        <h4>Por favor ingrese sus Datos</h4>
+                        <input type="Text" name='name' value={inputValue.name} onChange={handleChange} placeholder='nombre' ></input>
+                        <input type="Number" name='phone' value={inputValue.phone} onChange={handleChange} placeholder='telefono'></input>
+                        <input type="mail" name='mail' value={inputValue.mail} onChange={handleChange} placeholder='Email'></input>
+                    </Modal.Body>
+                )}
                 <Modal.Footer>
-                    <Button className='enviar' type='Submit' onClick={props.onHide}>enviar</Button>
+                    <Button className='enviar' type='Submit' onClick={handleSubmit}>enviar</Button>
                 </Modal.Footer>
             </Modal>
         );
     }
     const [modalShow, setModalShow] = useState(false);
 
+
+    const addOrder = async (newOrder) => {
+        const orderFireBase = collection(dataBase, 'ordenes')
+        const orderDoc = await addDoc(orderFireBase, newOrder)
+        console.log("orden generada:", newOrder)
+        setSuccesOrder(orderDoc.id)
+    }
+
     return (
         <div>
             <h1>Checkout</h1>
+
             {
                 cartItemList.map((Producto) => {
                     const { id, tittle, cantidad, price, img } = Producto
                     const Total = ((cantidad * price))
-
                     return (
                         <>
                             <div className='contenedorCheckout' key={id}>
@@ -86,6 +130,8 @@ const CheckoutPage = () => {
 
             {cartItemList.length === 0 ? <Link to={'/productos'}> < Button className='botonCheckout' variant="dark" > ver productos  </Button>  </Link> :
                 <Button className='botonCheckout' variant="dark" onClick={() => setModalShow(true)}>Pagar </Button>}
+
+
             <MyVerticallyCenteredModal
                 show={modalShow}
                 onHide={() => setModalShow(false)}

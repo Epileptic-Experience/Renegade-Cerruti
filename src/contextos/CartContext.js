@@ -6,13 +6,12 @@ const CartContext = createContext()
 const CartProvider = ({ children }) => {
 
     const [cartItemList, setCartItemList] = useState([])
-    // const Total = (cartItemList.cantidad * cartItemList.price)
-
-    // const totalCompra = ([...Total + Total])
+    const [totalPrice, setTotalPrice] = useState(0)
 
     const addProductToCart = (product) => {
         const cartList = [...cartItemList];
         cartList.push(product);
+        setTotalPrice(totalPrice + product.price)
         setCartItemList(cartList)
     }
     const removeFromCart = (productId) => {
@@ -34,9 +33,10 @@ const CartProvider = ({ children }) => {
         addProductToCart,
         removeFromCart,
         getAmountOfItems,
+        setCartItemList,
+        totalPrice
         
-        // totalCompra
-       
+
     }
 
     return (
