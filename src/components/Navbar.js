@@ -36,12 +36,6 @@ const NavBar = () => {
                                 <p>Preguntas Frecuentes</p>
                             </li>
                         </Link>
-                        <Link className="nav-link" to={"/contacto"}>
-                            <li className="nav-item link-blanco">
-                                <p>contacto</p>
-                            </li>
-                        </Link>
-
                         <NavDropdown className='dropdown  ' title="productos" id="basic-nav-dropdown">
                             <Link className="nav-link" to={"/productos"}>
                                 <li className="nav-item ">

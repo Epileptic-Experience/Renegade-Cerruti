@@ -1,0 +1,48 @@
+.contenedorPreguntas {
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    position:relative;
+    vertical-align: middle;
+    font-family: 'Wallpoet', cursive;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.contenidoPreguntas{
+    vertical-align: middle
+}
+
+.accordion-button, .accordion-item {
+    background-color: black !important;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+
+.accordion-item {
+    margin: auto;
+    margin-bottom: 15px;
+    width: 70%;
+}
+
+.accordion-button {
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.tituloPregunta {
+    width: 100%;
+    display: block;
+    text-align: center;
+    color: blue;
+}
+
+.textoPregunta {
+    color: white;
+    margin-bottom: 0%;
+}

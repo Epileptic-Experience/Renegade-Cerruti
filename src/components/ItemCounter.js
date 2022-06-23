@@ -1,14 +1,8 @@
 import './ItemCounter.css'
 
-
 const ItemCounter = ({ addProductToCart, cantidad, setCantidad, stock }) => {
-
-    
-   
-
     function addCount() {
         if (cantidad < stock) {
-
             setCantidad(cantidad + 1)
         }
 
@@ -17,10 +11,6 @@ const ItemCounter = ({ addProductToCart, cantidad, setCantidad, stock }) => {
 
         setCantidad(cantidad - 1)
     }
-
-
-
-
     return (
         <div className="contenedor">
             <button className="boton" onClick={addCount} disabled={cantidad === stock}>+</button>
@@ -31,7 +21,6 @@ const ItemCounter = ({ addProductToCart, cantidad, setCantidad, stock }) => {
                 onClick={addProductToCart}>
                 Agregar al carrito
             </button>
-
         </div>)
 }
 export default ItemCounter

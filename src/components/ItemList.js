@@ -3,6 +3,7 @@ import './ItemList.css';
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 import MockProductos from "../utils/productosMock";
+
 import { collection, getDocs, query, where } from "firebase/firestore";
 import dataBase from "../utils/FirebaseConfig";
 
@@ -71,6 +72,7 @@ const ItemList = () => {
             }
         </div>
     )
+    
 }
 
 export default ItemList

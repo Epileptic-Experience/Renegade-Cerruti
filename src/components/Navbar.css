@@ -6,18 +6,18 @@
     margin-bottom: 10px;
     flex-wrap: wrap;
 }
-
+.me-auto , .navbar-nav{
+    margin: auto;
+}
 .marca, .nav-link {
     font-family: 'Wallpoet', cursive;
-
-
 }
 
 .marca {
     position: relative;
     margin-left: 50px;
     color: white;
-    margin-left: 0%;
+    
 }
 
 

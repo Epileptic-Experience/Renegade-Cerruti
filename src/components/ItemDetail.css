@@ -5,8 +5,7 @@
     flex-direction: row;
     margin-bottom: 10px;
     flex-wrap: wrap;
-
-
+    overflow: hidden;
 }
 
 .contenedorDetalles {
