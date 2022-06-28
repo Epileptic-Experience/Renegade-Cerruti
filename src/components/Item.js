@@ -1,6 +1,7 @@
-import './Item.css'
-import { Card } from 'react-bootstrap'
+import './Item.css';
+import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import textSlicer from '../utils/helpers';
 
 
 
@@ -16,7 +17,7 @@ const Item = ({ tittle, price, Img, id }) => {
             <Card.Img variant="top"  src={`.${Img}`} />
 
             <Card.Body>
-                <Card.Title>{tittle}</Card.Title>
+                <Card.Title>{textSlicer(tittle)}</Card.Title>
                 <Card.Text>
                     <span>${price}</span>
                 </Card.Text>

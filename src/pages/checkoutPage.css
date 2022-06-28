@@ -9,6 +9,20 @@
 
 }
 
+.tittleHolder {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.wrapCheckout {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
 .contenidoCheckout {
 
     width: 70%;
@@ -44,7 +58,7 @@
     font-size: 20px;
 }
 
-.modal-content {
+.modal .modal-content {
     width: 50%;
     margin: auto;
 }
@@ -54,10 +68,12 @@
     display: flex;
     flex-direction: column;
 }
-input{
+
+.modal input {
     margin-bottom: 15px;
 }
-.enviar{
+
+.enviar {
     width: 100%;
 }
 

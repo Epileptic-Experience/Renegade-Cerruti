@@ -2,14 +2,16 @@
     flex-direction: column;
     width: 100%;
     justify-content: center;
-    position:relative;
+    position: relative;
     vertical-align: middle;
     font-family: 'Wallpoet', cursive;
     padding: 20px;
     flex-wrap: wrap;
+    min-width: 100vw;
+    height: 100%;
 }
 
-.contenidoPreguntas{
+.contenidoPreguntas {
     vertical-align: middle
 }
 
@@ -20,7 +22,9 @@
     align-items: center;
     border-radius: 10px;
 }
-
+.cargando{
+    color: antiquewhite;
+}
 
 .accordion-item {
     margin: auto;

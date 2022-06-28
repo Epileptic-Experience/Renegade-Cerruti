@@ -7,15 +7,15 @@ import dataBase from '../utils/FirebaseConfig';
 
 const PreguntasFrecuentes = () => {
     const [preguntas, setPreguntas] = useState([])
-    const getPreguntasFirebase = async () => {
-        const productSnapshot = await getDocs(collection(dataBase, "Preguntas"))
 
-        const productList = productSnapshot.docs.map((doc) => {
+    const getPreguntasFirebase = async () => {
+        const preguntasSnapshot = await getDocs(collection(dataBase, "Preguntas"))
+        const listaPreguntas = preguntasSnapshot.docs.map((doc) => {
             let product = doc.data()
             product.id = doc.id
             return product
         })
-        return productList;
+        return listaPreguntas;
     }
 
     useEffect(() => {
@@ -24,28 +24,36 @@ const PreguntasFrecuentes = () => {
         })
     }, [])
     return (
+
         <div className='contenedorPreguntas'>
             <div className='contenidoPreguntas'>
-                {preguntas.map((pregunta) => {
-                    const { titulo, respuesta } = pregunta
-                    return (
-                        <>
+                {(preguntas == null) ? (
+                    <h1 className='cargando'> Cargando producto </h1>
+                ) : (
+                    <>
+                        {preguntas.map((pregunta) => {
+                            const { titulo, respuesta } = pregunta
+                            return (
+                                <>
 
-                            <Accordion bg="dark">
-                                <Accordion.Item>
-                                    <Accordion.Header>
-                                        <p className='tituloPregunta' >{titulo}</p>
-                                    </Accordion.Header>
-                                    <Accordion.Body>
-                                        <p className='textoPregunta'>
-                                            {respuesta}
-                                        </p>
-                                    </Accordion.Body>
-                                </Accordion.Item>
-                            </Accordion>
-                        </>
-                    )
-                })}
+                                    <Accordion bg="dark">
+                                        <Accordion.Item>
+                                            <Accordion.Header>
+                                                <p className='tituloPregunta' >{titulo}</p>
+                                            </Accordion.Header>
+                                            <Accordion.Body>
+                                                <p className='textoPregunta'>
+                                                    {respuesta}
+                                                </p>
+                                            </Accordion.Body>
+                                        </Accordion.Item>
+                                    </Accordion>
+                                </>
+                            )
+                        })}
+                    </>
+                )}
+
 
             </div>
         </div>

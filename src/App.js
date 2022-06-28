@@ -18,8 +18,8 @@ import { CartProvider } from './contextos/CartContext';
 function App() {
   return (
 
-    <div className='page-container' >
-      <div className='wrap-ccontenido'>
+    <div className='App' >
+      <div className='wrap-contenido'>
         <CartProvider>
           <BrowserRouter>
             <NavBar />

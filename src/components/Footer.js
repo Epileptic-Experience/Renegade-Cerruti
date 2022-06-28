@@ -16,7 +16,7 @@ const footer = () => {
                         </ul>
                     </div>
                     {/* columna 2 */}
-                    <div className="col" id="col2">
+                    <div className="col" >
                         <h4>Información legal</h4>
                         <ul>
                             <li>la propiedad intelectual de Renegade comics asi como de sus logos son propiedad
