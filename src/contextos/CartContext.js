@@ -6,7 +6,6 @@ const CartContext = createContext()
 const CartProvider = ({ children }) => {
 
     const [cartItemList, setCartItemList] = useState([])
-    const [totalPrice, setTotalPrice] = useState(0)
 
     const addProductToCart = (product) => {
         const cartList = [...cartItemList];
@@ -21,11 +20,19 @@ const CartProvider = ({ children }) => {
         }
         setCartItemList(newArray)
     }
-
+    const cleanCart = () => {
+        setCartItemList([])
+    }
     const getAmountOfItems = () => {
         let amount = 0
         cartItemList.forEach((item) => { amount = amount + item.cantidad })
         return amount
+    }
+
+    const getTotalPrice = ()=>{
+        let totalPrice = 0
+        cartItemList.forEach((item)=>{totalPrice = totalPrice + item.cantidad * item.price })
+        return totalPrice
     }
     const data = {
         cartItemList,
@@ -33,9 +40,8 @@ const CartProvider = ({ children }) => {
         removeFromCart,
         getAmountOfItems,
         setCartItemList,
-        totalPrice
-        
-
+        cleanCart,
+        getTotalPrice
     }
 
     return (

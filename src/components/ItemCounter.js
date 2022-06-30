@@ -16,7 +16,6 @@ const ItemCounter = ({ addProductToCart, cantidad, setCantidad, stock }) => {
             <button className="boton" onClick={addCount} disabled={cantidad === stock}>+</button>
             <div className="cuenta" >unidades:{cantidad}</div>
             <button className="boton" onClick={removeCount} disabled={cantidad === 1}  >-</button>
-            <br />
             <button className="comprar"
                 onClick={addProductToCart}>
                 Agregar al carrito

@@ -7,7 +7,8 @@ import dataBase from '../utils/FirebaseConfig';
 import { addDoc, collection } from 'firebase/firestore'
 
 const CheckoutPage = () => {
-    const { removeFromCart, cartItemList } = useContext(CartContext);
+    const { removeFromCart, cartItemList, cleanCart, getTotalPrice } = useContext(CartContext);
+    const totalPrice = getTotalPrice()
     const inputRef = {
         name: useRef(null),
         phone: useRef(null),
@@ -28,6 +29,7 @@ const CheckoutPage = () => {
                 cantidad: cantidad
             }
         }),
+        orderTotalPrice: totalPrice
 
 
     })
@@ -40,6 +42,7 @@ const CheckoutPage = () => {
             phone: inputRef.phone.current.value,
             direction: inputRef.direction.current.value
         }
+
     }
     const handleSubmit = () => {
         checkForm()
@@ -53,7 +56,6 @@ const CheckoutPage = () => {
     }
     function MyVerticallyCenteredModal(props) {
         return (
-
 
 
             <Modal
@@ -80,20 +82,22 @@ const CheckoutPage = () => {
                         </div>
                     </Modal.Body>
                 ) : (
+                    <>
+                        <Modal.Body>
+                            <h4>Datos de facturación</h4>
+                            <input required type="Text" name='name' ref={inputRef.name} onChange={handleChange} placeholder='nombre' ></input>
+                            <input type="Number" name='phone' ref={inputRef.phone} onChange={handleChange} placeholder='telefono'></input>
+                            <input type="mail" name='mail' ref={inputRef.mail} onChange={handleChange} placeholder='Email'></input>
+                            <input type="text" name='direction' ref={inputRef.direction} onChange={handleChange} placeholder='direccion'></input>
+                        </Modal.Body>
+                        <Modal.Footer>
 
-                    <Modal.Body>
-                        <h4>Datos de facturación</h4>
-                        <input type="Text" name='name' ref={inputRef.name} onChange={handleChange} placeholder='nombre' ></input>
-                        <input type="Number" name='phone' ref={inputRef.phone} onChange={handleChange} placeholder='telefono'></input>
-                        <input type="mail" name='mail' ref={inputRef.mail} onChange={handleChange} placeholder='Email'></input>
-                        <input type="text" name='direction' ref={inputRef.direction} onChange={handleChange} placeholder='direccion'></input>
-                    </Modal.Body>
+
+                            {loading === false && <Button className='enviar' type='Submit' onClick={handleSubmit}>enviar</Button>}
+                        </Modal.Footer>
+
+                    </>
                 )}
-                <Modal.Footer>
-
-
-                    {loading == false && <Button className='enviar' type='Submit' onClick={handleSubmit}>enviar</Button>}
-                </Modal.Footer>
             </Modal >
         );
     }
@@ -108,6 +112,8 @@ const CheckoutPage = () => {
         console.log("orden generada:", newOrder)
         setSuccesOrder(orderDoc.id)
         console.log("id orden:", succesOrder)
+        cleanCart()
+
     }
 
     return (
@@ -152,7 +158,7 @@ const CheckoutPage = () => {
                 }
 
                 {cartItemList.length === 0 ? <Link to={'/productos'}> < Button className='botonCheckout' variant="dark" > ver productos  </Button>  </Link> :
-                    <Button className='botonCheckout' variant="dark" onClick={() => setModalShow(true)}>Pagar </Button>}
+                    <Button className='botonCheckout' variant="dark" onClick={() => setModalShow(true)}>Pagar: ${totalPrice}</Button>}
 
 
                 <MyVerticallyCenteredModal

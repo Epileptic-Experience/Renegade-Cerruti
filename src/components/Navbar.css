@@ -6,9 +6,11 @@
     margin-bottom: 10px;
     flex-wrap: wrap;
 }
-.me-auto , .navbar-nav{
+
+.me-auto, .navbar-nav {
     margin: auto;
 }
+
 .marca, .nav-link {
     font-family: 'Wallpoet', cursive;
 }
@@ -16,7 +18,7 @@
 .marca {
     position: relative;
     color: white;
-    
+
 }
 
 
@@ -34,3 +36,4 @@
 .NavDropdown {
     color: white;
 }
+

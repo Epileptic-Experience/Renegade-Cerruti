@@ -6,12 +6,20 @@ import './Navbar.css';
 import CartContext from '../contextos/CartContext';
 
 const NavBar = () => {
-    const categories = ["DCcomics", "Marvelcomics"]
+    const categories = [
+        {
+            "categoryDropdown": "DCcomics",
+            "id": 1
+        },
+        {
+            "categoryDropdown": "Marvelcomics",
+            "id": 2
+        }]
     const { getAmountOfItems } = useContext(CartContext)
     const amountOfItems = getAmountOfItems()
 
     return (
-        <Navbar bg="dark" expand="lg">
+        <Navbar className='navBar' bg="dark" expand="lg">
 
             <Link to={"/"}>
 
@@ -43,21 +51,44 @@ const NavBar = () => {
                                 </li>
                             </Link>
                             <div className='link-blanco'>
-                                {categories.map((category) => {
-                                    return <Link className="nav-link  " to={`/productos/${category} `}>
-                                        <li className="nav-item ">
-                                            <p>{category}</p>
-                                        </li>
-                                    </Link>
+                                {
+                                    categories.map((category) => {
+                                        const { id, categoryDropdown } = category
+                                        return (
+                                            <div key={id}>
 
-                                })}
+                                                <Link className="nav-link  "  to={`/productos/${categoryDropdown} `}>
+                                                    <li className="nav-item " >
+                                                        <p>{categoryDropdown}</p>
+                                                    </li>
+                                                </Link>
+
+                                            </div>
+
+                                        )
+                                    })
+                                }
+                                {/* {
+                products.map((Producto) => {
+                    const { id, tittle, price, img } = Producto
+                    return (
+                        <div key={id}>
+                            <Item
+                                tittle={tittle}
+                                price={price}
+                                Img={img}
+                                id={id} />
+                        </div>
+                    )
+                })
+            } */}
                             </div>
                         </NavDropdown>
 
                     </Nav>
                 </Navbar.Collapse>
 
-                { amountOfItems > 0 && <Cart className="nav-link"  />}
+                {amountOfItems > 0 && <Cart className="nav-link" />}
             </Container>
         </Navbar>
     )

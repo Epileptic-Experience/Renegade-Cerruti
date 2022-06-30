@@ -32,11 +32,12 @@ const PreguntasFrecuentes = () => {
                 ) : (
                     <>
                         {preguntas.map((pregunta) => {
-                            const { titulo, respuesta } = pregunta
+                            const { titulo, respuesta, id } = pregunta
                             return (
-                                <>
 
-                                    <Accordion bg="dark">
+                                <div key={id}>
+
+                                    <Accordion bg="dark" >
                                         <Accordion.Item>
                                             <Accordion.Header>
                                                 <p className='tituloPregunta' >{titulo}</p>
@@ -48,7 +49,8 @@ const PreguntasFrecuentes = () => {
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>
-                                </>
+                                </div>
+
                             )
                         })}
                     </>
