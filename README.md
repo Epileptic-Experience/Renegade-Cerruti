@@ -9,12 +9,18 @@ after you get that done you can go ahead and type `npx create-react-app your-fil
 after that you can type `npm run start` in your console to initialize react's basic layout, shortly after a window should open on the url `http://localhost:3000`,  other hosts in the network might browse to `http://192.168.0.137:3000` for local access
 to edit the files and start doinmg some actually working app just open the created folder to acces it's code
 
+# npm install
+
+to make sure the page runs properly you can simply type `npm install` in case this doesn't work you can try installing them manually
+
 # react-router-dom
 
 react-router-dom is used in this project, to install it locally open your console (be it the one on your code editor,CMD or any other external console you use) and type `npm install react-router-dom `
 
 # react-bootstrap & bootstrap-icons
 react-bootstrap (not to be confused with regular bootstrap) is also used here alongside with bootstrap-icons, to locally install them follow the process listed in react-router-dom instalation but type `npm install react-bootstrap` & `npm install bootstrap-icons `
+
+
 
 #a gif showing the page's nvegability will be added to the root directory of this project at `Renegade-test-gif`
 
