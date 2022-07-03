@@ -8,13 +8,14 @@
     align-items: center;
     text-align: center;
     font-family: 'Wallpoet', cursive;
-
+    min-height: 500px;
 
 }
 
 .contenedorCarusel {
     grid-area: carusel;
-    background-color: rgba(238, 5, 5, 0.75);
+    color: antiquewhite;
+    background-color: rgba(0, 0, 0, 0.74);
     height: 300px;
     width: 100%;
 
@@ -30,18 +31,16 @@
 }
 
 .tituloHome {
-    background-color: rgba(238, 5, 5, 0.75);
-    color: black;
+    color: antiquewhite;
+    background-color: rgba(0, 0, 0, 0.74);
 
 }
 
 .textoCarusel {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.30);
     color: red;
     height: 70px;
     border-radius: 10px;
     margin: auto;
     position: relative;
 }
-
-

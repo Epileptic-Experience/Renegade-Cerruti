@@ -1,5 +1,4 @@
 import './Home.css'
-import MockProductos from "../utils/productosMock";
 import { Carousel } from 'react-bootstrap';
 import { getDocs, collection } from 'firebase/firestore';
 import dataBase from '../utils/FirebaseConfig';
@@ -9,12 +8,10 @@ import { useEffect, useState } from 'react';
 
 
 const Home = () => {
-    const { id } = useParams()
     const [sliderProduct, setSliderProduct] = useState([])
 
     const getProductosFirebase = async () => {
         const productSnapshot = await getDocs(collection(dataBase, "0"))
-
         const productList = productSnapshot.docs.map((doc) => {
             let product = doc.data()
             product.id = doc.id
@@ -24,7 +21,7 @@ const Home = () => {
 
     }
     useEffect(() => {
-        getProductosFirebase().then((res)=>{
+        getProductosFirebase().then((res) => {
             setSliderProduct(res)
         })
     }, [])
@@ -37,7 +34,7 @@ const Home = () => {
             <div className='contenedorCarusel'>
 
                 <Carousel className='carusel' >
-                    {sliderProduct.slice(0,4).map(
+                    {sliderProduct.slice(0, 4).map(
                         (recomendado) => {
                             const { tittle, img, id } = recomendado
                             return (
@@ -54,8 +51,6 @@ const Home = () => {
 
                                     <Carousel.Caption className='textoCarusel'>
                                         <h3 className='tituloCarusel'>{tittle}</h3>
-
-
                                     </Carousel.Caption>
                                 </Carousel.Item>
 

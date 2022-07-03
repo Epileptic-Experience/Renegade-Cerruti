@@ -5,6 +5,7 @@ import Cart from './Cart';
 import './Navbar.css';
 import CartContext from '../contextos/CartContext';
 
+
 const NavBar = () => {
     const categories = [
         {
@@ -57,7 +58,7 @@ const NavBar = () => {
                                         return (
                                             <div key={id}>
 
-                                                <Link className="nav-link  "  to={`/productos/${categoryDropdown} `}>
+                                                <Link className="nav-link  " to={`/productos/${categoryDropdown} `}>
                                                     <li className="nav-item " >
                                                         <p>{categoryDropdown}</p>
                                                     </li>
@@ -68,26 +69,13 @@ const NavBar = () => {
                                         )
                                     })
                                 }
-                                {/* {
-                products.map((Producto) => {
-                    const { id, tittle, price, img } = Producto
-                    return (
-                        <div key={id}>
-                            <Item
-                                tittle={tittle}
-                                price={price}
-                                Img={img}
-                                id={id} />
-                        </div>
-                    )
-                })
-            } */}
+
                             </div>
                         </NavDropdown>
+                      
 
                     </Nav>
                 </Navbar.Collapse>
-
                 {amountOfItems > 0 && <Cart className="nav-link" />}
             </Container>
         </Navbar>

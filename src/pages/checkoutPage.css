@@ -6,6 +6,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 20px;
+   
 
 }
 
@@ -14,6 +15,7 @@
     width: 100%;
     height: 100%;
     flex-direction: column;
+    min-height: 700px;
 }
 
 .wrapCheckout {
@@ -56,7 +58,13 @@ width: 264px
 }
 .botonCheckout{
     font-family: 'Wallpoet', cursive;
+    
 
+}
+.tituloCheckout{
+    font-family: 'Wallpoet', cursive;
+    color: antiquewhite;
+    background-color: rgba(0, 0, 0, 0.74);
 }
 
 .remove {

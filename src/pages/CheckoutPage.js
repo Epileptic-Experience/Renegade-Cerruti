@@ -119,7 +119,7 @@ const CheckoutPage = () => {
     return (
         <div className='tittleHolder'>
 
-            <h1>Checkout</h1>
+            <h1 className='tituloCheckout' >Checkout</h1>
             <div className='wrapCheckout'>
 
                 {
