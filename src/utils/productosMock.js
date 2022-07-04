@@ -11,7 +11,7 @@ const MockProductos = [
         "tittle": "crisis en tierras inifinitas",
         "price": 3500,
         "category": "DCcomics",
-        "img": "./crisis_tierras_infinitas.webp",
+        "img": "./crisisInfinitas.jpg",
         "detail": "Una oleada de antimateria está arrasando el multiverso, y solo el misterioso Monitor parece conocer la causa y, lo que es más importante, la solución: reclutar a los héroes más poderosos de todas las tierras para hacer frente al enemigo más peligroso que jamás hayan conocido.",
         "id": 2
     },
