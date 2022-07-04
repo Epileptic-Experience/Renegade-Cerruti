@@ -74,11 +74,8 @@ const CheckoutPage = () => {
                 {succesOrder ? (
                     <Modal.Body>
                         <div>
-
                             orden completada con exito
                             numero de orden {succesOrder} <br />
-
-
                         </div>
                     </Modal.Body>
                 ) : (
